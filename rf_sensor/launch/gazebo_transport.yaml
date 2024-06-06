@@ -1,0 +1,6 @@
+gz-transport13:
+  ubuntu:
+    jammy: [libgz-transport13-dev]
+gz-sim8:
+  ubuntu:
+    jammy: [libgz-sim8-dev]

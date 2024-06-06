@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<sdf version="1.7">
+  <world name="default">
+
+    <!-- Include the ground plane -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Include the sun -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Include the radio source tag -->
+    <include>
+      <uri>model://rf_tag</uri>
+      <pose>0 0 0 0 0 0</pose> <!-- Position the tag at the origin -->
+    </include>
+
+    <!-- Include the radio receiver -->
+    <include>
+      <uri>model://rf_receiver</uri>
+      <pose>2 0 0 0 0 0</pose> <!-- Position the receiver 2 meters away from the tag -->
+    </include>
+
+  </world>
+</sdf>

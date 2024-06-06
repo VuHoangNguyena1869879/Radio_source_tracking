@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<sdf version="1.7">
+  <model name="rf_tag">
+    <link name="tag">
+      <inertial>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0.0</ixy>
+          <ixz>0.0</ixz>
+          <iyy>0.001</iyy>
+          <iyz>0.0</iyz>
+          <izz>0.001</izz>
+        </inertia>
+      </inertial>
+      <visual name="tag_visual">
+        <geometry>
+          <box>
+            <size>0.1 0.1 0.1</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>1 0 0 1</ambient>
+          <diffuse>1 0 0 1</diffuse>
+          <specular>0.1 0.1 0.1 1</specular>
+          <emissive>0 0 0 1</emissive>
+        </material>
+      </visual>
+      <collision name="tag_collision">
+        <geometry>
+          <box>
+            <size>0.1 0.1 0.1</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Plugin to simulate radio source properties -->
+    <plugin name="RfTagPlugin" filename="libRfTagPlugin.so">
+      <frequency>2.4e9</frequency> <!-- Frequency in Hz, example value -->
+      <power>1.0</power> <!-- Transmit power in Watts, example value -->
+      <range>100.0</range> <!-- Range in meters, example value -->
+    </plugin>
+
+  </model>
+</sdf>
