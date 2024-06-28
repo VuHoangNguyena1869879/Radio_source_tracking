@@ -51,7 +51,7 @@ private:
     bool IsOccluded(const gz::math::Vector3d &start, const gz::math::Vector3d &end, EntityComponentManager &ecm);
 
     Entity _entity;
-    transport::Node _node;
+    std::shared_ptr<gz::transport::Node> _node;
     rclcpp::Node::SharedPtr _node_handle;
     rclcpp::Publisher<rf_sensor::msg::TagArray>::SharedPtr _event_pub;
 
@@ -83,14 +83,14 @@ private:
     std::chi_squared_distribution<double> _optional_dist7;
     std::cauchy_distribution<double> _optional_dist8;
 
-    transport::Node::Publisher _scanPub;
+    gz::transport::Node::Publisher _scanPub;
 };
 
 GZ_ADD_PLUGIN(RfReceiver,
-                    gz::sim::System,
-                    RfReceiver::ISystemConfigure,
-                    RfReceiver::ISystemPostUpdate)
- 
+              gz::sim::System,
+              RfReceiver::ISystemConfigure,
+              RfReceiver::ISystemPreUpdate)
+
 GZ_ADD_PLUGIN_ALIAS(RfReceiver, "gz::sim::systems::RfReceiver")
 
 #endif  // RF_RECEIVER_H_
