@@ -194,14 +194,14 @@ void RfReceiver::OnUpdate(const UpdateInfo &info, EntityComponentManager &ecm)
                     random_number = _optional_dist8(_generator);
             }
 
-            // Calculate RSSI and phase here
+            // Calculate RSSI and phase 
             double rssi = _communication_gain - (20 * log10(dist) + random_number) * gain;
             double phi = _meterToPhi * dist + random_number;
 
             rf_sensor::msg::Tag tag_msg;
-            tag_msg.name = tag_entry.first;  // Use the correct field name 'name'
+            tag_msg.name = tag_entry.first;  
             tag_msg.rssi = rssi;
-            tag_msg.phi = phi;  // Use the correct field name 'phi'
+            tag_msg.phi = phi;  
 
             msgArray.push_back(tag_msg);
         }
@@ -216,7 +216,8 @@ void RfReceiver::OnUpdate(const UpdateInfo &info, EntityComponentManager &ecm)
 /////////////////////////////////////////////////
 double RfReceiver::AntennaGain(double angle)
 {
-    return 1.0; 
+    double gain = max_gain * std::cos(angle);
+    return std::max(gain, 0.0);
 }
 
 /////////////////////////////////////////////////

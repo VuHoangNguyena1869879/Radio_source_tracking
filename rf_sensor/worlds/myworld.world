@@ -1,28 +1,19 @@
-<?xml version="1.0"?>
 <sdf version="1.7">
-  <world name="default">
-
-    <!-- Include the ground plane -->
+  <world name="demo">
     <include>
-      <uri>model://ground_plane</uri>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Sun</uri>
     </include>
-
-    <!-- Include the sun -->
+ +
     <include>
-      <uri>model://sun</uri>
+      <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Ground Plane</uri>
     </include>
-
-    <!-- Include the radio source tag  -->
+ 
     <include>
-      <uri>model://rf_tag</uri>
-      <pose>0 0 0 0 0 0</pose> <!-- Position the tag at the origin -->
+      <uri>/home/nguyenvuhoang2402/ros2_ws/Radio_source_tracking/rf_source.sdf</uri>
     </include>
-
-    <!-- Include the radio receiver -->
     <include>
-      <uri>model://rf_receiver</uri>
-      <pose>2 0 0 0 0 0</pose> <!-- Position the receiver 2 meters away from the tag -->
+      <uri>/home/nguyenvuhoang2402/ros2_ws/Radio_source_tracking/rf_receiver.sdf</uri>
     </include>
-
+ 
   </world>
 </sdf>
