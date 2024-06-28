@@ -35,11 +35,10 @@
       </collision>
     </link>
 
-    <!-- Plugin to simulate radio source properties -->
     <plugin name="RfTagPlugin" filename="libRfTagPlugin.so">
-      <frequency>2.4e9</frequency> <!-- Frequency in Hz, example value -->
-      <power>1.0</power> <!-- Transmit power in Watts, example value -->
-      <range>100.0</range> <!-- Range in meters, example value -->
+      <frequency>865.7</frequency> 
+      <power>1.0</power>
+      <range>100.0</range>
     </plugin>
 
   </model>

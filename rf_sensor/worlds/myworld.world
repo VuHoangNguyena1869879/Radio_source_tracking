@@ -12,7 +12,7 @@
       <uri>model://sun</uri>
     </include>
 
-    <!-- Include the radio source tag -->
+    <!-- Include the radio source tag  -->
     <include>
       <uri>model://rf_tag</uri>
       <pose>0 0 0 0 0 0</pose> <!-- Position the tag at the origin -->

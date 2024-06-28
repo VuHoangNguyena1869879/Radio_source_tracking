@@ -132,11 +132,6 @@ void RfReceiver::PreUpdate(const UpdateInfo &info, EntityComponentManager &ecm)
 /////////////////////////////////////////////////
 void RfReceiver::OnUpdate(const UpdateInfo &info, EntityComponentManager &ecm)
 {
-    // Process the update logic here, similar to your original OnUpdate implementation
-    // Obtain the position of the antenna, the tags in range, and publish the results
-    // as ROS messages.
-
-    // Example: Get the world pose of the antenna entity
     auto pose = ecm.Component<components::Pose>(_entity);
     if (pose == nullptr)
     {
@@ -221,15 +216,12 @@ void RfReceiver::OnUpdate(const UpdateInfo &info, EntityComponentManager &ecm)
 /////////////////////////////////////////////////
 double RfReceiver::AntennaGain(double angle)
 {
-    // Example: Simple isotropic gain
-    return 1.0; // Replace with actual gain calculation
+    return 1.0; 
 }
 
 /////////////////////////////////////////////////
 bool RfReceiver::IsOccluded(const gz::math::Vector3d &start, const gz::math::Vector3d &end, EntityComponentManager &ecm)
 {
-    // Use GZ Sim's ray tracing capabilities
-    // Placeholder for now, you need to implement ray tracing logic using GZ Sim
     return false;
 }
 

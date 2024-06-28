@@ -37,7 +37,12 @@
       </collision>
     </link>
 
-    <!-- Add plugins or additional components as needed -->
+    <plugin name="rf_receiver_plugin" filename="libRfReceiverPlugin.so">
+      <sensing_range>7.0</sensing_range>
+      <noisephi>0.1</noisephi>
+      <noiserssi>0.008</noiserssi>
+      <communication_gain>1.0</communication_gain>
+    </plugin>
 
   </model>
 </sdf>
