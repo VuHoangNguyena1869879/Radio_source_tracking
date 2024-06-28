@@ -6,8 +6,12 @@ using namespace systems;
 
 RfTag::RfTag()
 {
+    // Initialize transport node
+    _node = std::make_shared<gz::transport::Node>();
+    _node->Init();
+
     // Initialize publisher
-    _pub = _node.Advertise<gz::msgs::Pose>("/Rf/tag_pose");
+    _pub = _node->Advertise<gz::msgs::Pose>("/Rf/tag_pose");
 }
 
 RfTag::~RfTag()
@@ -15,14 +19,14 @@ RfTag::~RfTag()
 }
 
 void RfTag::Configure(const Entity &entity,
-                        const std::shared_ptr<const sdf::Element> &sdf,
-                        EntityComponentManager &ecm,
-                        EventManager &eventMgr)
+                      const std::shared_ptr<const sdf::Element> &sdf,
+                      EntityComponentManager &ecm,
+                      EventManager &eventMgr)
 {
     _entity = entity;
 
     // Get the parent sensor
-    parentSensor = std::dynamic_pointer_cast<gz::sim::Sensor>(gz::sim::Sensor(entity));
+    parentSensor = ecm.EntityByComponents<components::Sensor>(entity);
 
     if (!parentSensor)
     {

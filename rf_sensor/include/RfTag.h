@@ -35,12 +35,11 @@ public:
 private:
     void OnUpdate(const UpdateInfo &info, EntityComponentManager &ecm);
 
-gz_sim::Entity entity;
+    gz::sim::Entity _entity;
 
     gz::sim::Entity parentSensor;
-
-    rclcpp::Publisher<geometry_msgs::msg::Pose>::SharedPtr rosPub;
-
+    std::shared_ptr<gz::transport::Node> _node;
+    gz::transport::Node::Publisher _pub;
     gz::common::ConnectionPtr updateConnection;
 };
 

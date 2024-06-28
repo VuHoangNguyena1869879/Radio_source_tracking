@@ -15,6 +15,7 @@ git clone https://github.com/VuHoangNguyena1869879/Radio_source_tracking.git
 cd Radio_source_tracking
 2. Make sure ROS2 and Gazebo Harmonic are installed
 3. Build the project
+cd ~/ros2_ws
 colcon build
 source install/setup.bash
 Usage
